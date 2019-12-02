@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'email'             => 'admin@admin.com',
             'email_verified_at' => now(),
             'password'          => bcrypt('password'),
-            'api_token'         => Str::random('60'),
+            'api_token'         => 'PYrQSVayoqCICi2nUblMmxfqWSaRa9OQqkB7LFlTL9JUoVr8DpHCWNXNQlBB',
             'created_at'        => now(),
         ]);
     }
