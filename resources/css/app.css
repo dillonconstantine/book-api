@@ -1,0 +1,106 @@
+/**
+* This injects Tailwind's base styles, which is a combination of
+* Normalize.css and some additional base styles.
+*
+* You can see the styles here:
+* https://github.com/tailwindcss/tailwindcss/blob/master/css/base.css
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/base";
+*/
+@tailwind base;
+
+/**
+* This injects any component classes registered by plugins.
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/components";
+*/
+@tailwind components;
+
+/**
+* Here you would add any of your custom component classes; stuff that you'd
+* want loaded *before* the utilities so that the utilities could still
+* override them.
+*
+* Example:
+*
+* .btn { ... }
+* .form-input { ... }
+*
+* Or if using a preprocessor or `postcss-import`:
+*
+* @import "components/buttons";
+* @import "components/forms";
+*/
+
+input, textarea {
+    @apply py-3 px-4 mb-3 appearance-none block w-full rounded leading-tight bg-gray-100 border border-gray-200;
+}
+
+input:focus {
+    @apply outline-none bg-white;
+}
+
+label {
+    @apply block mb-2 uppercase tracking-wide text-xs font-bold text-gray-700;
+}
+
+button {
+    @apply block mx-auto py-2 px-4 rounded bg-transparent border border-blue-500 font-semibold text-blue-500;
+}
+
+button:hover {
+    @apply bg-blue-500 border-transparent text-white;
+}
+
+.nav-link {
+    @apply block pb-2 mt-4;
+}
+
+.nav-link:hover {
+    @apply text-blue-500;
+}
+
+.nav-link-active {
+    @apply border-solid border-b border-blue-800;
+}
+
+.error-form-text {
+    @apply ml-1 mb-2 text-xs text-red-500;
+}
+
+.error-form-input {
+    @apply border border-red-500;
+}
+
+.box {
+    @apply p-5 rounded-lg shadow-xl;
+}
+
+/**
+* This injects all of Tailwind's utility classes, generated based on your
+* config file.
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/utilities";
+*/
+@tailwind utilities;
+
+/**
+* Here you would add any custom utilities you need that don't come out of the
+* box with Tailwind.
+*
+* Example :
+*
+* .bg-pattern-graph-paper { ... }
+* .skew-45 { ... }
+*
+* Or if using a preprocessor or `postcss-import`:
+*
+* @import "utilities/background-patterns";
+* @import "utilities/skew-transforms";
+*/
