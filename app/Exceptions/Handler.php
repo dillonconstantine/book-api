@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -46,7 +48,30 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-     
+        if ($exception instanceof ModelNotFoundException && $request->wantsJson())
+        {
+            $errors = [
+                'errors' => [
+                    'status' => 404,
+                    'title'  => 'Resource not found',
+                    'detail' => 'This resource does not exist'
+                ]
+            ];
+
+            return response($errors, 404);
+        }
+
+        if ($exception instanceof AuthenticationException && $request->wantsJson()){
+            $errors = [
+                'errors' => [
+                    'status' => 401,
+                    'title'  => 'Unauthenticated',
+                    'detail' => 'You need to provide a valid bearer token'
+                ]
+            ];
+
+            return response($errors, 401);
+        }
 
         return parent::render($request, $exception);
     }

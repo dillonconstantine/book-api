@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGifsTable extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateGifsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gifs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('books', function (Blueprint $table) {
+            $table->uuid('uuid')->primary();
             $table->string('title');
-            $table->string('url');
+            $table->string('author');
+            $table->date('released');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateGifsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gifs');
+        Schema::dropIfExists('books');
     }
 }

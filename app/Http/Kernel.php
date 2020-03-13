@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
+            'attach.content.type.header'
         ],
     ];
 
@@ -61,6 +62,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        'check.content.type.header'  => \App\Http\Middleware\API\CheckContentTypeHeader::class,
+        'check.accept.header'        => \App\Http\Middleware\API\CheckAcceptHeader::class,
+        'attach.content.type.header' => \App\Http\Middleware\API\AttachContentTypeHeader::class,
     ];
 
     /**

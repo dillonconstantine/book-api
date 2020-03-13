@@ -11,23 +11,6 @@
 |
 */
 
-Route::namespace('Web')->middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return redirect('create');
-    });
-    
-    Route::get('/create', 'GifController@create')->name('create');
-    Route::post('/create', 'GifController@processCreate')->name('processCreate');
+Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/edit', 'GifController@edit')->name('edit');
-    Route::post('/edit', 'GifController@processEdit')->name('processEdit');
-
-    Route::get('/delete', 'GifController@delete')->name('delete');
-    Route::post('/delete', 'GifController@processDelete')->name('processDelete');
-});
-
-Route::namespace('Auth')->group(function () {
-    Route::get('login', 'LoginController@showLoginForm')->name('login');
-    Route::post('login', 'LoginController@login');
-    Route::get('logout', 'LoginController@logout')->name('logout');
-});
+Auth::routes(['reset' => false]);
