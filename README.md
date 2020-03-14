@@ -135,6 +135,16 @@ Content-Type: application/vnd.api+json
 
 * General polishing and testing.
 
+## Software
+
+### Frameworks & Libraries
+
+* Laravel (PHP)
+
+### Other
+
+* Laravel Passport
+
 ## Notes
 
 For the purpose of accessibility of the project, email verification and password resets are not active.
