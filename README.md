@@ -8,7 +8,7 @@ It follows the [JSON:API](https://jsonapi.org/format/) specification for buildin
 
 ## Getting An Access Token
 
-To get an access token you can do so via the API as shown below or alternatively you can head over to [https://book-api.dillonconstantine.com/](https://book-api.dillonconstantine.dev/) and generate an access token.
+To get an access token you can do so via the API as shown below or alternatively you can head over to [https://book-api.dillonconstantine.com/](https://book-api.dillonconstantine.com/) and generate an access token.
 
 The following headers need to be provided if getting an access token via the API:
 
@@ -123,9 +123,7 @@ Content-Type: application/vnd.api+json
 
   `DEL` /api/books/{id}
 
-## Additional
-
-### To-do
+## To-do
 
 * Add an author resource and implement a relationship between the book and author resources based on the JSON:API specification.
 
@@ -134,6 +132,8 @@ Content-Type: application/vnd.api+json
 
 * Implement sorting for example:\
   `GET` /api/book?sort=released
+
+* General polishing and testing.
 
 ## Notes
 
